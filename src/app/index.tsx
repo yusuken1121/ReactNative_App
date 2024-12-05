@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet } from "react-native";
+import { shadowStyle } from "./styles";
 
 const Index = () => {
   const data = [
@@ -42,8 +43,8 @@ const Index = () => {
       </View>
 
       {/* Floating Button */}
-      <View style={styles.floatingButton}>
-        <Text style={styles.floatingButtonText}>+</Text>
+      <View style={styles.circleButton}>
+        <Text style={styles.circleButtonLabel}>+</Text>
       </View>
     </View>
   );
@@ -59,15 +60,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     height: 104,
     justifyContent: "flex-end",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowOpacity: 0.1, // 影の透明度 (0〜1)
-    shadowRadius: 4, // 影のぼかし具合
-    // Shadow for Android
-    elevation: 5,
+    ...shadowStyle,
   },
   headerInner: {
     alignItems: "center",
@@ -103,6 +96,24 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: "#848484",
+  },
+
+  // Button
+  circleButton: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    position: "absolute",
+    right: 40,
+    bottom: 40,
+    ...shadowStyle,
+  },
+  circleButtonLabel: {
+    fontSize: 40,
+    lineHeight: 48,
   },
 });
 
